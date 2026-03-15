@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fuel Pass Info Hub | Sri Lanka Fuel & Energy News</title>
+  <meta
+    name="description"
+    content="Independent Fuel Pass information portal with Sri Lankan and global fuel news. Not an official government website."
+  />
+  <style>
+    :root {
+      --bg: #0b1220;
+      --card: #121a2b;
+      --muted: #9fb0d0;
+      --text: #eef4ff;
+      --accent: #4da3ff;
+      --accent-2: #7be0b5;
+      --warn: #ffd166;
+      --danger: #ff6b6b;
+      --border: rgba(255,255,255,0.09);
+      --shadow: 0 16px 40px rgba(0,0,0,0.25);
+      --radius: 18px;
+      --max: 1200px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      background:
+        radial-gradient(circle at top right, rgba(77,163,255,0.12), transparent 30%),
+        radial-gradient(circle at top left, rgba(123,224,181,0.10), transparent 25%),
+        var(--bg);
+      color: var(--text);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.5;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(calc(100% - 32px), var(--max));
+      margin: 0 auto;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(14px);
+      background: rgba(11,18,32,0.72);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .topbar-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 14px 0;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-badge {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color: #06101f;
+      font-weight: 800;
+      box-shadow: var(--shadow);
+    }
+
+    .brand h1 {
+      margin: 0;
+      font-size: 1.05rem;
+      line-height: 1.1;
+    }
+
+    .brand p {
+      margin: 2px 0 0;
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+
+    .hero {
+      padding: 36px 0 16px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.35fr 0.9fr;
+      gap: 22px;
+    }
+
+    .panel {
+      background: rgba(18,26,43,0.86);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-card {
+      padding: 28px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(77,163,255,0.12);
+      color: #b7d8ff;
+      border: 1px solid rgba(77,163,255,0.2);
+      border-radius: 999px;
+      padding: 8px 12px;
+      font-size: 0.85rem;
+      margin-bottom: 14px;
+    }
+
+    .hero h2 {
+      margin: 0 0 10px;
+      font-size: clamp(1.8rem, 4vw, 3rem);
+      line-height: 1.08;
+      letter-spacing: -0.02em;
+    }
+
+    .hero p.lead {
+      color: #d7e5ff;
+      margin: 0 0 18px;
+      font-size: 1.02rem;
+      max-width: 60ch;
+    }
+
+    .button-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .btn {
+      appearance: none;
+      border: 0;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      border-radius: 14px;
+      padding: 12px 16px;
+      font-weight: 700;
+      transition: transform 0.18s ease, opacity 0.18s ease, background 0.18s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent), #79bcff);
+      color: #04111f;
+    }
+
+    .btn-secondary {
+      background: rgba(255,255,255,0.06);
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+
+    .btn-warning {
+      background: linear-gradient(135deg, var(--warn), #ffe08a);
+      color: #382b00;
+    }
+
+    .notice-card {
+      padding: 24px;
+      display: grid;
+      gap: 14px;
+      align-content: start;
+    }
+
+    .notice {
+      background: rgba(255, 209, 102, 0.10);
+      border: 1px solid rgba(255, 209, 102, 0.25);
+      border-radius: 16px;
+      padding: 16px;
+    }
+
+    .notice strong {
+      color: #ffe7a3;
+    }
+
+    .quick-links {
+      display: grid;
+      gap: 10px;
+    }
+
+    .quick-link {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 14px 16px;
+      color: var(--text);
+    }
+
+    .main {
+      padding: 18px 0 42px;
+    }
+
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 16px;
+      margin: 14px 0 16px;
+    }
+
+    .section-head h3 {
+      margin: 0;
+      font-size: 1.35rem;
+    }
+
+    .section-head p {
+      margin: 4px 0 0;
+      color: var(--muted);
+      font-size: 0.96rem;
+    }
+
+    .controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .chipbar {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin: 10px 0 18px;
+    }
+
+    .chip {
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.04);
+      color: var(--text);
+      border-radius: 999px;
+      padding: 9px 14px;
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    .chip.active {
+      background: rgba(77,163,255,0.16);
+      border-color: rgba(77,163,255,0.35);
+      color: #d8ebff;
+    }
+
+    .status {
+      margin: 10px 0 18px;
+      color: var(--muted);
+      font-size: 0.95rem;
+      min-height: 24px;
+    }
+
+    .news-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .card {
+      background: rgba(18,26,43,0.9);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      min-height: 100%;
+    }
+
+    .thumb {
+      aspect-ratio: 16 / 9;
+      width: 100%;
+      object-fit: cover;
+      background: linear-gradient(135deg, rgba(77,163,255,0.15), rgba(123,224,181,0.10));
+    }
+
+    .card-body {
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      flex: 1;
+    }
+
+    .meta {
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+
+    .card h4 {
+      margin: 0;
+      font-size: 1.02rem;
+      line-height: 1.35;
+    }
+
+    .card p {
+      margin: 0;
+      color: #d7e3f9;
+      font-size: 0.95rem;
+    }
+
+    .card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-top: auto;
+      padding-top: 8px;
+    }
+
+    .source {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: #c6d6f3;
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+
+    .readmore {
+      color: #9fd0ff;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .empty,
+    .loading {
+      padding: 22px;
+      border-radius: 18px;
+      border: 1px dashed rgba(255,255,255,0.16);
+      color: var(--muted);
+      background: rgba(255,255,255,0.03);
+    }
+
+    .footer {
+      padding: 10px 0 44px;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .footer .panel {
+      padding: 18px 20px;
+    }
+
+    .tiny {
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    @media (max-width: 980px) {
+      .hero-grid,
+      .news-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .topbar-inner,
+      .section-head {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .hero-grid,
+      .news-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-card,
+      .notice-card {
+        padding: 20px;
+      }
+
+      .hero h2 {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <div class="brand">
+        <div class="brand-badge">FP</div>
+        <div>
+          <h1>Fuel Pass Info Hub</h1>
+          <p>Independent Sri Lankan fuel and energy news portal</p>
+        </div>
+      </div>
+      <div class="button-row">
+        <a
+          class="btn btn-warning"
+          href="https://fuelpass.gov.lk/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Go to Official Fuel Pass Site
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container hero-grid">
+      <div class="panel hero-card">
+        <div class="eyebrow">Latest fuel, oil, and energy headlines</div>
+        <h2>Stay updated on Sri Lankan and global fuel news</h2>
+        <p class="lead">
+          This website is an independent public information portal. It helps users follow
+          fuel-related headlines, policy updates, and broader energy news in one place.
+        </p>
+        <div class="button-row">
+          <a
+            class="btn btn-primary"
+            href="https://fuelpass.gov.lk/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Open Official Fuel Pass Website
+          </a>
+          <button class="btn btn-secondary" id="refreshAllBtn" type="button">
+            Refresh News
+          </button>
+        </div>
+      </div>
+
+      <aside class="panel notice-card">
+        <div class="notice">
+          <strong>Important:</strong> This is <strong>not</strong> an official government website.
+          For registration, QR code access, or official Fuel Pass services, always use the
+          official portal.
+        </div>
+
+        <div class="quick-links">
+          <a
+            class="quick-link"
+            href="https://fuelpass.gov.lk/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Official Fuel Pass Portal
+          </a>
+          <a
+            class="quick-link"
+            href="https://ceypetco.gov.lk/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Ceylon Petroleum Corporation
+          </a>
+          <a
+            class="quick-link"
+            href="#news"
+          >
+            Browse Latest Fuel News
+          </a>
+        </div>
+
+        <div class="tiny">
+          Tip: keep this site clearly branded as an independent information resource, not as an
+          official registration or government service portal.
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <main class="main" id="news">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h3>Latest News</h3>
+          <p>Switch between Sri Lankan updates and global energy headlines.</p>
+        </div>
+        <div class="controls">
+          <button class="btn btn-secondary" id="refreshCurrentBtn" type="button">Refresh Current View</button>
+        </div>
+      </div>
+
+      <div class="chipbar">
+        <button class="chip active" data-tab="sl">Sri Lankan Fuel News</button>
+        <button class="chip" data-tab="global">Global Fuel & Energy News</button>
+      </div>
+
+      <div class="status" id="statusText">Loading latest headlines...</div>
+
+      <section id="slSection">
+        <div class="news-grid" id="slNewsGrid"></div>
+      </section>
+
+      <section id="globalSection" class="hidden">
+        <div class="news-grid" id="globalNewsGrid"></div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="panel">
+        <strong>Disclaimer:</strong> This is an independent information website and is not affiliated with,
+        endorsed by, or operated by the Government of Sri Lanka, ICTA, CPC, or the official Fuel Pass system.
+        For official services, use
+        <a href="https://fuelpass.gov.lk/" target="_blank" rel="noopener noreferrer">fuelpass.gov.lk</a>.
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const rssToJson = "https://api.rss2json.com/v1/api.json?rss_url=";
+
+    const feeds = {
+      sl: [
+        {
+          name: "Sri Lanka Fuel Pass / Fuel News",
+          url: "https://news.google.com/rss/search?q=Fuel%20Pass%20Sri%20Lanka%20OR%20fuel%20Sri%20Lanka%20OR%20petrol%20Sri%20Lanka%20OR%20diesel%20Sri%20Lanka&hl=en-LK&gl=LK&ceid=LK:en"
+        },
+        {
+          name: "Sri Lanka Energy News",
+          url: "https://news.google.com/rss/search?q=Sri%20Lanka%20energy%20OR%20Ceylon%20Petroleum%20Corporation%20OR%20fuel%20quota&hl=en-LK&gl=LK&ceid=LK:en"
+        }
+      ],
+      global: [
+        {
+          name: "Global Oil and Fuel News",
+          url: "https://news.google.com/rss/search?q=oil%20prices%20OR%20fuel%20prices%20OR%20diesel%20prices%20OR%20petrol%20prices&hl=en-US&gl=US&ceid=US:en"
+        },
+        {
+          name: "Global Energy Supply News",
+          url: "https://news.google.com/rss/search?q=global%20energy%20market%20OR%20oil%20supply%20OR%20refinery%20news&hl=en-US&gl=US&ceid=US:en"
+        }
+      ]
+    };
+
+    let currentTab = "sl";
+
+    const slNewsGrid = document.getElementById("slNewsGrid");
+    const globalNewsGrid = document.getElementById("globalNewsGrid");
+    const slSection = document.getElementById("slSection");
+    const globalSection = document.getElementById("globalSection");
+    const statusText = document.getElementById("statusText");
+    const chips = document.querySelectorAll(".chip");
+    const refreshAllBtn = document.getElementById("refreshAllBtn");
+    const refreshCurrentBtn = document.getElementById("refreshCurrentBtn");
+
+    function escapeHtml(str = "") {
+      return str
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+    }
+
+    function formatDate(dateString) {
+      if (!dateString) return "Date unavailable";
+      const d = new Date(dateString);
+      if (Number.isNaN(d.getTime())) return "Date unavailable";
+      return d.toLocaleString(undefined, {
+        year: "numeric",
+        month: "short",
+        day: "numeric",
+        hour: "numeric",
+        minute: "2-digit"
+      });
+    }
+
+    function stripHtml(html = "") {
+      const temp = document.createElement("div");
+      temp.innerHTML = html;
+      return temp.textContent || temp.innerText || "";
+    }
+
+    function summarize(text = "", max = 170) {
+      const clean = text.replace(/\s+/g, " ").trim();
+      if (clean.length <= max) return clean;
+      return clean.slice(0, max).trim() + "...";
+    }
+
+    function extractImage(item) {
+      if (item.thumbnail) return item.thumbnail;
+
+      if (item.enclosure && item.enclosure.link) {
+        return item.enclosure.link;
+      }
+
+      const content = item.content || item.description || "";
+      const match = content.match(/<img[^>]+src="([^">]+)"/i);
+      if (match && match[1]) return match[1];
+
+      return "";
+    }
+
+    function sourceFromLink(link = "") {
+      try {
+        const url = new URL(link);
+        return url.hostname.replace(/^www\./, "");
+      } catch {
+        return "Source";
+      }
+    }
+
+    function renderLoading(container) {
+      container.innerHTML = `<div class="loading">Loading headlines...</div>`;
+    }
+
+    function renderEmpty(container, message) {
+      container.innerHTML = `<div class="empty">${escapeHtml(message)}</div>`;
+    }
+
+    function renderCards(container, items) {
+      if (!items || !items.length) {
+        renderEmpty(container, "No news articles were found right now.");
+        return;
+      }
+
+      container.innerHTML = items.map(item => {
+        const image = extractImage(item);
+        const title = escapeHtml(item.title || "Untitled article");
+        const link = item.link || "#";
+        const date = formatDate(item.pubDate);
+        const source = escapeHtml(item.sourceName || sourceFromLink(link));
+        const description = escapeHtml(
+          summarize(stripHtml(item.description || item.content || ""), 165)
+        );
+
+        return `
+          <article class="card">
+            ${
+              image
+                ? `<img class="thumb" src="${image}" alt="${title}" loading="lazy" referrerpolicy="no-referrer" />`
+                : `<div class="thumb"></div>`
+            }
+            <div class="card-body">
+              <div class="meta">${date}</div>
+              <h4>${title}</h4>
+              <p>${description}</p>
+              <div class="card-footer">
+                <span class="source">${source}</span>
+                <a class="readmore" href="${link}" target="_blank" rel="noopener noreferrer">Read more</a>
+              </div>
+            </div>
+          </article>
+        `;
+      }).join("");
+    }
+
+    async function fetchFeed(feedUrl) {
+      const endpoint = rssToJson + encodeURIComponent(feedUrl);
+      const response = await fetch(endpoint);
+      if (!response.ok) {
+        throw new Error("Failed to fetch feed");
+      }
+      const data = await response.json();
+      if (!data || !data.items) {
+        throw new Error("Invalid feed response");
+      }
+      return data.items;
+    }
+
+    async function fetchMergedNews(type) {
+      const allFeeds = feeds[type] || [];
+      const results = await Promise.allSettled(allFeeds.map(feed => fetchFeed(feed.url)));
+
+      const merged = [];
+      results.forEach((result, index) => {
+        if (result.status === "fulfilled") {
+          result.value.forEach(item => {
+            merged.push({
+              ...item,
+              sourceName: allFeeds[index].name
+            });
+          });
+        }
+      });
+
+      const uniqueMap = new Map();
+      for (const item of merged) {
+        const key = (item.link || item.guid || item.title || "").trim();
+        if (key && !uniqueMap.has(key)) {
+          uniqueMap.set(key, item);
+        }
+      }
+
+      return Array.from(uniqueMap.values())
+        .sort((a, b) => new Date(b.pubDate || 0) - new Date(a.pubDate || 0))
+        .slice(0, 18);
+    }
+
+    async function loadNews(type, showStatus = true) {
+      const container = type === "sl" ? slNewsGrid : globalNewsGrid;
+
+      renderLoading(container);
+      if (showStatus) {
+        statusText.textContent =
+          type === "sl"
+            ? "Loading latest Sri Lankan fuel headlines..."
+            : "Loading latest global fuel and energy headlines...";
+      }
+
+      try {
+        const items = await fetchMergedNews(type);
+        renderCards(container, items);
+
+        const now = new Date().toLocaleString(undefined, {
+          year: "numeric",
+          month: "short",
+          day: "numeric",
+          hour: "numeric",
+          minute: "2-digit"
+        });
+
+        statusText.textContent =
+          type === "sl"
+            ? `Showing latest Sri Lankan fuel headlines. Last refreshed: ${now}`
+            : `Showing latest global fuel and energy headlines. Last refreshed: ${now}`;
+      } catch (error) {
+        renderEmpty(
+          container,
+          "Could not load news right now. Please try again in a moment."
+        );
+        statusText.textContent = "There was a problem loading news.";
+        console.error(error);
+      }
+    }
+
+    function switchTab(tab) {
+      currentTab = tab;
+
+      chips.forEach(chip => {
+        chip.classList.toggle("active", chip.dataset.tab === tab);
+      });
+
+      slSection.classList.toggle("hidden", tab !== "sl");
+      globalSection.classList.toggle("hidden", tab !== "global");
+
+      const activeGrid = tab === "sl" ? slNewsGrid : globalNewsGrid;
+      if (!activeGrid.children.length) {
+        loadNews(tab);
+      } else {
+        statusText.textContent =
+          tab === "sl"
+            ? "Showing latest Sri Lankan fuel headlines."
+            : "Showing latest global fuel and energy headlines.";
+      }
+    }
+
+    chips.forEach(chip => {
+      chip.addEventListener("click", () => {
+        switchTab(chip.dataset.tab);
+      });
+    });
+
+    refreshAllBtn.addEventListener("click", async () => {
+      await Promise.all([loadNews("sl", false), loadNews("global", false)]);
+      statusText.textContent = "All news sections refreshed.";
+    });
+
+    refreshCurrentBtn.addEventListener("click", () => {
+      loadNews(currentTab);
+    });
+
+    loadNews("sl");
+    loadNews("global", false);
+  </script>
+</body>
+</html>

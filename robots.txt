@@ -1,0 +1,16 @@
+# robots.txt for fuelpass.lk
+# Generated: 2026-03-23
+
+User-agent: *
+Allow: /
+
+# Block any future admin or private paths
+Disallow: /admin/
+Disallow: /private/
+Disallow: /*.json$
+
+# Sitemap location
+Sitemap: https://fuelpass.lk/sitemap.xml
+
+# Crawl-delay for polite bots (optional)
+Crawl-delay: 1

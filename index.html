@@ -1207,6 +1207,406 @@
         grid-template-columns: 1fr 1fr 1fr;
       }
     }
+
+    /* ── CAR PROFILE WIZARD ── */
+    .car-profile-section {
+      padding: 90px 5%;
+      background: var(--bg2);
+    }
+
+    .wiz-progress {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 40px auto 48px;
+      max-width: 420px;
+    }
+
+    .wiz-step {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .wiz-step-dot {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: 2px solid rgba(148,163,184,0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: rgba(148,163,184,0.4);
+      transition: all 0.35s ease;
+      background: transparent;
+    }
+
+    .wiz-step.active .wiz-step-dot {
+      background: var(--amber);
+      border-color: var(--amber);
+      color: #000;
+      box-shadow: 0 0 20px rgba(245,158,11,0.4);
+    }
+
+    .wiz-step.done .wiz-step-dot {
+      background: var(--green);
+      border-color: var(--green);
+      color: #fff;
+    }
+
+    .wiz-step-label {
+      font-size: 0.62rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: rgba(148,163,184,0.4);
+      transition: color 0.35s;
+      white-space: nowrap;
+    }
+
+    .wiz-step.active .wiz-step-label,
+    .wiz-step.done .wiz-step-label {
+      color: var(--text-muted);
+    }
+
+    .wiz-connector {
+      flex: 1;
+      height: 2px;
+      background: rgba(148,163,184,0.15);
+      margin-bottom: 24px;
+      max-width: 80px;
+      transition: background 0.35s;
+    }
+
+    .wiz-connector.done { background: var(--green); }
+
+    .wiz-panel {
+      display: none;
+      max-width: 640px;
+      margin: 0 auto;
+      animation: wizFadeIn 0.35s ease forwards;
+    }
+
+    .wiz-panel.active { display: block; }
+
+    @keyframes wizFadeIn {
+      from { opacity: 0; transform: translateY(12px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .wiz-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 36px;
+    }
+
+    .wiz-card-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.55rem;
+      letter-spacing: 0.05em;
+      color: var(--text);
+      margin-bottom: 24px;
+    }
+
+    .wiz-field { margin-bottom: 20px; }
+
+    .wiz-field label {
+      display: block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+
+    .wiz-select {
+      width: 100%;
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px 36px 12px 16px;
+      color: var(--text);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.9rem;
+      outline: none;
+      cursor: pointer;
+      transition: border-color 0.2s;
+      appearance: none;
+      -webkit-appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%2394a3b8' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 14px center;
+      box-sizing: border-box;
+    }
+
+    .wiz-select:focus { border-color: var(--amber); }
+
+    .wiz-select:disabled { opacity: 0.38; cursor: not-allowed; }
+
+    .wiz-spec-preview {
+      background: linear-gradient(135deg, rgba(245,158,11,0.06), rgba(16,185,129,0.04));
+      border: 1px solid rgba(245,158,11,0.22);
+      border-radius: 12px;
+      padding: 18px 20px;
+      margin-top: 20px;
+      display: none;
+      animation: wizFadeIn 0.3s ease;
+    }
+
+    .wiz-spec-preview.visible { display: block; }
+
+    .wiz-spec-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 12px;
+    }
+
+    .wiz-spec-item { text-align: center; }
+
+    .wiz-spec-val {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.3rem;
+      color: var(--amber);
+      letter-spacing: 0.04em;
+    }
+
+    .wiz-spec-lbl {
+      font-size: 0.62rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    .wiz-input-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+
+    .wiz-number-input {
+      width: 100%;
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px 16px;
+      color: var(--text);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.9rem;
+      outline: none;
+      transition: border-color 0.2s;
+      box-sizing: border-box;
+    }
+
+    .wiz-number-input:focus { border-color: var(--amber); }
+
+    .wiz-pill-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 24px;
+    }
+
+    .wiz-pill {
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      padding: 8px 18px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: all 0.2s;
+      user-select: none;
+    }
+
+    .wiz-pill:hover {
+      border-color: rgba(245,158,11,0.4);
+      color: var(--text);
+    }
+
+    .wiz-pill.selected {
+      background: var(--amber-glow);
+      border-color: var(--amber);
+      color: var(--amber);
+    }
+
+    .wiz-loading {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 60px 20px;
+      gap: 24px;
+    }
+
+    .wiz-spinner {
+      position: relative;
+      width: 64px;
+      height: 64px;
+    }
+
+    .wiz-spinner-ring {
+      position: absolute;
+      inset: 0;
+      border-radius: 50%;
+      border: 3px solid transparent;
+    }
+
+    .wiz-spinner-outer { border-top-color: var(--amber); animation: wizSpin 1s linear infinite; }
+    .wiz-spinner-inner { inset: 8px; border-top-color: var(--green); animation: wizSpin 0.7s linear infinite reverse; }
+
+    @keyframes wizSpin { to { transform: rotate(360deg); } }
+
+    .wiz-loading-msg {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      text-align: center;
+      min-height: 22px;
+      transition: opacity 0.3s;
+    }
+
+    .wiz-result-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .wiz-result-icon { font-size: 2.4rem; line-height: 1; }
+
+    .wiz-result-car-name {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.55rem;
+      letter-spacing: 0.04em;
+      color: var(--text);
+      line-height: 1.1;
+    }
+
+    .wiz-result-car-sub { font-size: 0.78rem; color: var(--text-muted); margin-top: 4px; }
+
+    .wiz-saving-box {
+      background: linear-gradient(135deg, rgba(16,185,129,0.12), rgba(16,185,129,0.05));
+      border: 1px solid rgba(16,185,129,0.3);
+      border-radius: 12px;
+      padding: 20px 24px;
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .wiz-saving-label {
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      color: var(--green);
+      font-weight: 700;
+    }
+
+    .wiz-saving-value {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2.4rem;
+      color: var(--green);
+      letter-spacing: 0.03em;
+      line-height: 1;
+    }
+
+    .wiz-saving-sub { font-size: 0.72rem; color: rgba(16,185,129,0.65); margin-top: 3px; }
+
+    .wiz-stat-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      margin-bottom: 28px;
+    }
+
+    .wiz-stat-tile {
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px 8px;
+      text-align: center;
+    }
+
+    .wiz-stat-val {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.3rem;
+      color: var(--amber);
+      letter-spacing: 0.03em;
+      line-height: 1.1;
+    }
+
+    .wiz-stat-lbl {
+      font-size: 0.6rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+
+    .wiz-tips-title {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--amber);
+      margin-bottom: 12px;
+    }
+
+    .wiz-tips-list {
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+      margin-bottom: 28px;
+    }
+
+    .wiz-tip-item {
+      background: var(--bg3);
+      border-left: 3px solid var(--amber);
+      border-radius: 0 8px 8px 0;
+      padding: 11px 15px;
+      font-size: 0.83rem;
+      color: var(--text-muted);
+      line-height: 1.55;
+    }
+
+    .wiz-btn-row {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .wiz-btn-row .btn-primary,
+    .wiz-btn-row .btn-outline {
+      flex: 1;
+      min-width: 140px;
+      text-align: center;
+      justify-content: center;
+      padding: 12px 20px;
+    }
+
+    .wiz-nav { display: flex; justify-content: flex-end; margin-top: 24px; }
+    .wiz-nav-both { display: flex; justify-content: space-between; }
+
+    @media (max-width: 640px) {
+      .wiz-card { padding: 24px 18px; }
+      .wiz-stat-grid { grid-template-columns: repeat(2, 1fr); }
+      .wiz-input-row { grid-template-columns: 1fr; }
+      .wiz-saving-box { flex-direction: column; align-items: flex-start; }
+      .wiz-saving-value { font-size: 1.9rem; }
+    }
   </style>
   <script src="translations.js"></script>
 </head>
@@ -1227,6 +1627,7 @@
       <li><a href="#simulator">Simulator</a></li>
       <li><a href="#tips">Tips</a></li>
       <li><a href="#calculator">Calculator</a></li>
+      <li><a href="#car-profile">My Car</a></li>
       <li><a href="#simulations">3D Labs</a></li>
       <li><a href="https://fuelpass.gov.lk" target="_blank" rel="noopener" class="nav-cta">Official FuelPass ↗</a></li>
     </ul>
@@ -1470,6 +1871,195 @@
           </div>
         </div>
         <div class="sim-insight" id="calcTip" style="margin-top:16px;"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CAR PROFILE WIZARD -->
+  <section class="car-profile-section" id="car-profile">
+    <div class="section-label">Personalised Analysis</div>
+    <h2 class="section-title reveal">MY CAR FUEL<br>PROFILE</h2>
+    <p class="section-sub reveal">Select your car and driving habits for a Sri Lanka–adjusted fuel cost breakdown with personalised saving tips.</p>
+
+    <!-- Step progress -->
+    <div class="wiz-progress">
+      <div class="wiz-step active" id="wizDot1">
+        <div class="wiz-step-dot" id="wizDotCircle1">1</div>
+        <div class="wiz-step-label">Your Car</div>
+      </div>
+      <div class="wiz-connector" id="wizConn1"></div>
+      <div class="wiz-step" id="wizDot2">
+        <div class="wiz-step-dot" id="wizDotCircle2">2</div>
+        <div class="wiz-step-label">How You Drive</div>
+      </div>
+      <div class="wiz-connector" id="wizConn2"></div>
+      <div class="wiz-step" id="wizDot3">
+        <div class="wiz-step-dot" id="wizDotCircle3">3</div>
+        <div class="wiz-step-label">Your Profile</div>
+      </div>
+    </div>
+
+    <!-- Panel 1: Car Selection -->
+    <div class="wiz-panel active" id="wizPanel1">
+      <div class="wiz-card">
+        <div class="wiz-card-title">What car do you drive?</div>
+
+        <div class="wiz-field">
+          <label>Model Year</label>
+          <select class="wiz-select" id="wizYear" onchange="wizLoadMakes()">
+            <option value="">— Select year —</option>
+          </select>
+        </div>
+
+        <div class="wiz-field">
+          <label>Make / Brand</label>
+          <select class="wiz-select" id="wizMake" onchange="wizLoadModels()" disabled>
+            <option value="">— Select make —</option>
+          </select>
+        </div>
+
+        <div class="wiz-field">
+          <label>Model</label>
+          <select class="wiz-select" id="wizModel" onchange="wizModelSelected()" disabled>
+            <option value="">— Select model —</option>
+          </select>
+        </div>
+
+        <div class="wiz-spec-preview" id="wizSpecPreview">
+          <div style="font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;color:var(--text-muted);">Factory Specs (EU/US Test Cycle)</div>
+          <div class="wiz-spec-grid">
+            <div class="wiz-spec-item">
+              <div class="wiz-spec-val" id="specCity">—</div>
+              <div class="wiz-spec-lbl">L/100km City</div>
+            </div>
+            <div class="wiz-spec-item">
+              <div class="wiz-spec-val" id="specHwy">—</div>
+              <div class="wiz-spec-lbl">L/100km Hwy</div>
+            </div>
+            <div class="wiz-spec-item">
+              <div class="wiz-spec-val" id="specEng">—</div>
+              <div class="wiz-spec-lbl">Engine</div>
+            </div>
+          </div>
+          <div style="margin-top:10px;font-size:0.72rem;color:var(--text-muted)" id="specTrans"></div>
+        </div>
+
+        <div class="wiz-nav">
+          <button class="btn-primary" id="wizNext1" onclick="wizGoStep(2)" disabled>Next: How You Drive →</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Panel 2: Driving Habits -->
+    <div class="wiz-panel" id="wizPanel2">
+      <div class="wiz-card">
+        <div class="wiz-card-title">How do you drive it?</div>
+
+        <div class="wiz-input-row">
+          <div class="wiz-field" style="margin-bottom:0">
+            <label>Daily km Driven</label>
+            <input type="number" class="wiz-number-input" id="wizDailyKm" value="30" min="1" max="500" placeholder="e.g. 30" />
+          </div>
+          <div class="wiz-field" style="margin-bottom:0">
+            <label>Fuel Price (LKR/L)</label>
+            <input type="number" class="wiz-number-input" id="wizFuelPrice" value="317" min="100" max="1000" placeholder="e.g. 317" />
+          </div>
+        </div>
+
+        <div class="wiz-field">
+          <label>Route Type</label>
+          <div class="wiz-pill-group" data-group="route">
+            <div class="wiz-pill selected" data-val="city" onclick="selectPill(this)">🏙️ City Streets</div>
+            <div class="wiz-pill" data-val="highway" onclick="selectPill(this)">🛣️ Highway</div>
+            <div class="wiz-pill" data-val="mixed" onclick="selectPill(this)">🔀 Mixed</div>
+          </div>
+        </div>
+
+        <div class="wiz-field">
+          <label>AC Usage</label>
+          <div class="wiz-pill-group" data-group="ac">
+            <div class="wiz-pill selected" data-val="always" onclick="selectPill(this)">❄️ Always</div>
+            <div class="wiz-pill" data-val="sometimes" onclick="selectPill(this)">🌤️ Sometimes</div>
+            <div class="wiz-pill" data-val="rarely" onclick="selectPill(this)">🌬️ Rarely</div>
+          </div>
+        </div>
+
+        <div class="wiz-field">
+          <label>Passengers</label>
+          <div class="wiz-pill-group" data-group="load">
+            <div class="wiz-pill selected" data-val="alone" onclick="selectPill(this)">🧍 Just Me</div>
+            <div class="wiz-pill" data-val="few" onclick="selectPill(this)">👥 2–3</div>
+            <div class="wiz-pill" data-val="full" onclick="selectPill(this)">👨‍👩‍👧‍👦 Full Car</div>
+          </div>
+        </div>
+
+        <div class="wiz-nav wiz-nav-both">
+          <button class="btn-outline" onclick="wizGoStep(1)">← Back</button>
+          <button class="btn-primary" onclick="wizCalculate()">Calculate My Profile →</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Panel 3: Results -->
+    <div class="wiz-panel" id="wizPanel3">
+      <div class="wiz-card">
+        <div class="wiz-loading" id="wizLoading">
+          <div class="wiz-spinner">
+            <div class="wiz-spinner-ring wiz-spinner-outer"></div>
+            <div class="wiz-spinner-ring wiz-spinner-inner"></div>
+          </div>
+          <div class="wiz-loading-msg" id="wizLoadingMsg">Fetching factory specs...</div>
+        </div>
+
+        <div id="wizResults" style="display:none">
+          <div class="wiz-result-header">
+            <div class="wiz-result-icon" id="resIcon">🚗</div>
+            <div>
+              <div class="wiz-result-car-name" id="resCarName">—</div>
+              <div class="wiz-result-car-sub" id="resCarSub">—</div>
+            </div>
+          </div>
+
+          <div class="wiz-saving-box">
+            <div>
+              <div class="wiz-saving-label">Potential Monthly Saving</div>
+              <div class="wiz-saving-value" id="resSaving">Rs. —</div>
+              <div class="wiz-saving-sub">if you follow the tips below</div>
+            </div>
+            <div style="text-align:right">
+              <div class="wiz-saving-label">Adjusted L/100km</div>
+              <div class="wiz-saving-value" style="font-size:1.8rem" id="resAdjusted">—</div>
+              <div class="wiz-saving-sub">Sri Lanka conditions</div>
+            </div>
+          </div>
+
+          <div class="wiz-stat-grid">
+            <div class="wiz-stat-tile">
+              <div class="wiz-stat-val" id="resLitresWeek">—</div>
+              <div class="wiz-stat-lbl">Litres/Week</div>
+            </div>
+            <div class="wiz-stat-tile">
+              <div class="wiz-stat-val" id="resWeeklyLkr">—</div>
+              <div class="wiz-stat-lbl">Weekly LKR</div>
+            </div>
+            <div class="wiz-stat-tile">
+              <div class="wiz-stat-val" id="resMonthlyLkr">—</div>
+              <div class="wiz-stat-lbl">Monthly LKR</div>
+            </div>
+            <div class="wiz-stat-tile">
+              <div class="wiz-stat-val" id="resCo2">—</div>
+              <div class="wiz-stat-lbl">CO₂ kg/week</div>
+            </div>
+          </div>
+
+          <div class="wiz-tips-title">Your Personalised Tips</div>
+          <div class="wiz-tips-list" id="resTipsList"></div>
+
+          <div class="wiz-btn-row">
+            <button class="btn-outline" onclick="wizRestart()">↩ Try Another Car</button>
+            <button class="btn-primary" onclick="wizShare()">📲 Share on WhatsApp</button>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -2065,6 +2655,349 @@
         isRunning = false;
         document.getElementById('startRaceBtn').style.display = 'inline-block';
         document.getElementById('resetRaceBtn').style.display = 'none';
+      };
+    })();
+
+    // ── CAR PROFILE WIZARD ──
+    (function () {
+      const SL_CARS = {
+        Toyota: {
+          icon: '🚗',
+          models: {
+            'Corolla':     { years:[1995,2024], city:8.5,  hwy:6.2,  eng:'1.6L/1.8L Petrol',        trans:'Auto/Manual', turbo:false },
+            'Premio':      { years:[2001,2022], city:8.0,  hwy:6.0,  eng:'1.5L/1.8L Petrol',        trans:'Auto',        turbo:false },
+            'Aqua':        { years:[2011,2022], city:4.2,  hwy:3.8,  eng:'1.5L Petrol Hybrid',      trans:'CVT',         turbo:false, hybrid:true },
+            'Prius':       { years:[2003,2022], city:4.0,  hwy:3.5,  eng:'1.8L Petrol Hybrid',      trans:'CVT',         turbo:false, hybrid:true },
+            'Axio':        { years:[2006,2022], city:7.5,  hwy:5.8,  eng:'1.5L Petrol',             trans:'Auto/Manual', turbo:false },
+            'Allion':      { years:[2001,2021], city:8.2,  hwy:6.0,  eng:'1.8L/2.0L Petrol',        trans:'Auto',        turbo:false },
+            'Rush':        { years:[2006,2022], city:10.5, hwy:8.0,  eng:'1.5L Petrol',             trans:'Auto',        turbo:false },
+            'Hilux':       { years:[2005,2024], city:12.0, hwy:9.0,  eng:'2.4L/2.8L Diesel',        trans:'Auto/Manual', turbo:true,  diesel:true },
+            'Land Cruiser':{ years:[1990,2024], city:14.5, hwy:11.0, eng:'4.0L/4.5L Diesel',        trans:'Auto',        turbo:true,  diesel:true },
+            'Vitz':        { years:[1999,2019], city:6.5,  hwy:5.0,  eng:'1.0L/1.3L Petrol',        trans:'Auto/Manual', turbo:false },
+            'Fortuner':    { years:[2005,2024], city:12.0, hwy:9.5,  eng:'2.7L Petrol/2.8L Diesel', trans:'Auto',        turbo:true  },
+            'Yaris':       { years:[2005,2024], city:6.8,  hwy:5.2,  eng:'1.3L/1.5L Petrol',        trans:'Auto/CVT',    turbo:false },
+          }
+        },
+        Honda: {
+          icon: '🚙',
+          models: {
+            'Fit / Jazz': { years:[2001,2022], city:6.5,  hwy:5.0,  eng:'1.3L/1.5L Petrol',  trans:'Auto/Manual', turbo:false },
+            'Civic':      { years:[2000,2024], city:8.5,  hwy:6.5,  eng:'1.5L Turbo/2.0L',   trans:'CVT/Auto',    turbo:true  },
+            'CR-V':       { years:[2002,2024], city:10.5, hwy:8.0,  eng:'1.5L Turbo/2.0L',   trans:'CVT/Auto',    turbo:true  },
+            'Vezel':      { years:[2013,2024], city:5.5,  hwy:4.5,  eng:'1.5L Hybrid',       trans:'CVT',         turbo:false, hybrid:true },
+            'Grace':      { years:[2014,2020], city:5.0,  hwy:4.0,  eng:'1.5L Hybrid',       trans:'CVT',         turbo:false, hybrid:true },
+            'Freed':      { years:[2008,2022], city:7.0,  hwy:5.5,  eng:'1.5L Petrol',       trans:'CVT',         turbo:false },
+            'N-Box':      { years:[2011,2023], city:5.5,  hwy:4.8,  eng:'660cc Petrol',       trans:'CVT',         turbo:false },
+          }
+        },
+        Suzuki: {
+          icon: '🚘',
+          models: {
+            'Alto':    { years:[2009,2024], city:5.5,  hwy:4.5,  eng:'660cc/1.0L Petrol',  trans:'Auto/Manual', turbo:false },
+            'Swift':   { years:[2004,2024], city:6.5,  hwy:5.0,  eng:'1.2L/1.4T Petrol',  trans:'Auto/CVT',    turbo:false },
+            'Wagon R': { years:[1999,2024], city:5.8,  hwy:4.8,  eng:'660cc/1.0L Petrol',  trans:'Auto/Manual', turbo:false },
+            'Vitara':  { years:[2015,2024], city:7.5,  hwy:6.0,  eng:'1.4L Turbo Petrol',  trans:'Auto',        turbo:true  },
+            'Jimny':   { years:[1998,2024], city:9.5,  hwy:7.5,  eng:'1.3L/1.5L Petrol',   trans:'Auto/Manual', turbo:false },
+            'Spacia':  { years:[2013,2023], city:5.0,  hwy:4.2,  eng:'660cc Hybrid',        trans:'CVT',         turbo:false, hybrid:true },
+          }
+        },
+        Nissan: {
+          icon: '🚗',
+          models: {
+            'Sunny / Latio': { years:[1998,2014], city:8.0,  hwy:6.2,  eng:'1.5L Petrol',      trans:'Auto/Manual', turbo:false },
+            'X-Trail':       { years:[2001,2024], city:10.5, hwy:8.0,  eng:'2.0L/2.5L Petrol', trans:'Auto/CVT',    turbo:false },
+            'Leaf':          { years:[2011,2024], city:0,    hwy:0,    eng:'Electric Motor',    trans:'Auto',        turbo:false, electric:true },
+            'Note':          { years:[2005,2022], city:6.2,  hwy:5.0,  eng:'1.2L/e-Power',     trans:'CVT',         turbo:false },
+            'Dayz':          { years:[2013,2024], city:5.5,  hwy:4.5,  eng:'660cc Petrol',      trans:'CVT',         turbo:false },
+            'Wingroad':      { years:[1996,2018], city:8.5,  hwy:6.5,  eng:'1.5L/1.8L Petrol', trans:'Auto/Manual', turbo:false },
+          }
+        },
+        Mitsubishi: {
+          icon: '🚙',
+          models: {
+            'Lancer':        { years:[1998,2016], city:9.0,  hwy:7.0,  eng:'1.3L/1.6L Petrol',      trans:'Auto/Manual', turbo:false },
+            'Outlander':     { years:[2003,2024], city:10.0, hwy:8.0,  eng:'2.0L/2.4L Petrol',      trans:'Auto/CVT',    turbo:false },
+            'Pajero':        { years:[1991,2021], city:14.0, hwy:11.0, eng:'3.2L Diesel/3.5L Pet',  trans:'Auto',        turbo:true,  diesel:true },
+            'Attrage':       { years:[2012,2024], city:6.8,  hwy:5.2,  eng:'1.2L Petrol',           trans:'CVT',         turbo:false },
+            'ASX':           { years:[2010,2024], city:9.5,  hwy:7.5,  eng:'1.6L/2.0L Petrol',      trans:'Auto/CVT',    turbo:false },
+            'Eclipse Cross': { years:[2017,2024], city:8.5,  hwy:6.8,  eng:'1.5L Turbo Petrol',     trans:'CVT',         turbo:true  },
+          }
+        },
+        Isuzu: {
+          icon: '🚛',
+          models: {
+            'D-Max': { years:[2002,2024], city:11.0, hwy:8.5,  eng:'2.5L/3.0L Diesel', trans:'Auto/Manual', turbo:true, diesel:true },
+            'ELF':   { years:[1995,2024], city:14.0, hwy:11.0, eng:'3.0L Diesel',      trans:'Manual',      turbo:true, diesel:true },
+          }
+        },
+        Perodua: {
+          icon: '🚗',
+          models: {
+            'Myvi':  { years:[2005,2024], city:6.5, hwy:5.2, eng:'1.0L/1.3L Petrol', trans:'Auto/Manual', turbo:false },
+            'Axia':  { years:[2014,2024], city:5.5, hwy:4.5, eng:'1.0L Petrol',      trans:'Auto/Manual', turbo:false },
+            'Bezza': { years:[2016,2024], city:6.5, hwy:5.0, eng:'1.0L/1.3L Petrol', trans:'Auto',        turbo:false },
+            'Alza':  { years:[2009,2024], city:7.5, hwy:6.0, eng:'1.5L Petrol',      trans:'Auto',        turbo:false },
+          }
+        },
+        'Tata / Bajaj': {
+          icon: '🛺',
+          models: {
+            'Three-Wheeler RE': { years:[2000,2024], city:3.5, hwy:3.0, eng:'2-stroke/4-stroke',  trans:'Manual',      turbo:false },
+            'Nano':             { years:[2009,2018], city:4.5, hwy:3.8, eng:'624cc Petrol',        trans:'Manual',      turbo:false },
+            'Nexon':            { years:[2017,2024], city:8.5, hwy:6.8, eng:'1.2L Turbo Petrol',  trans:'Manual/Auto', turbo:true  },
+          }
+        }
+      };
+
+      const SL_MULT = {
+        route: { city:1.32, highway:0.95, mixed:1.15 },
+        ac:    { always:1.12, sometimes:1.06, rarely:1.0 },
+        load:  { alone:1.0, few:1.04, full:1.08 },
+        age:   function(year) {
+          return year < 2000 ? 1.25 : year < 2005 ? 1.18 : year < 2010 ? 1.12 : year < 2015 ? 1.06 : 1.0;
+        }
+      };
+
+      const wizState = {
+        step:1, year:null, make:null, model:null,
+        route:'city', ac:'always', load:'alone',
+        dailyKm:30, fuelPrice:317
+      };
+
+      // Populate year dropdown
+      (function initYears() {
+        const sel = document.getElementById('wizYear');
+        for (let y = 2024; y >= 1995; y--) {
+          const o = document.createElement('option');
+          o.value = y; o.textContent = y;
+          sel.appendChild(o);
+        }
+      })();
+
+      window.wizLoadMakes = function() {
+        const year = +document.getElementById('wizYear').value;
+        wizState.year = year || null;
+        const makeSel  = document.getElementById('wizMake');
+        const modelSel = document.getElementById('wizModel');
+        makeSel.innerHTML  = '<option value="">— Select make —</option>';
+        modelSel.innerHTML = '<option value="">— Select model —</option>';
+        makeSel.disabled  = !year;
+        modelSel.disabled = true;
+        document.getElementById('wizSpecPreview').classList.remove('visible');
+        document.getElementById('wizNext1').disabled = true;
+        if (!year) return;
+        Object.keys(SL_CARS).forEach(function(make) {
+          const hasModel = Object.values(SL_CARS[make].models).some(function(s) {
+            return year >= s.years[0] - 2 && year <= s.years[1] + 1;
+          });
+          if (hasModel) {
+            const o = document.createElement('option');
+            o.value = make;
+            o.textContent = SL_CARS[make].icon + ' ' + make;
+            makeSel.appendChild(o);
+          }
+        });
+        makeSel.disabled = false;
+      };
+
+      window.wizLoadModels = function() {
+        const year = wizState.year;
+        const make = document.getElementById('wizMake').value;
+        wizState.make = make || null;
+        const modelSel = document.getElementById('wizModel');
+        modelSel.innerHTML = '<option value="">— Select model —</option>';
+        modelSel.disabled = !make;
+        document.getElementById('wizSpecPreview').classList.remove('visible');
+        document.getElementById('wizNext1').disabled = true;
+        if (!make) return;
+        Object.entries(SL_CARS[make].models).forEach(function(entry) {
+          const name = entry[0], spec = entry[1];
+          if (year >= spec.years[0] - 2 && year <= spec.years[1] + 1) {
+            const o = document.createElement('option');
+            o.value = name; o.textContent = name;
+            modelSel.appendChild(o);
+          }
+        });
+        modelSel.disabled = false;
+      };
+
+      window.wizModelSelected = function() {
+        const make  = wizState.make;
+        const model = document.getElementById('wizModel').value;
+        wizState.model = model || null;
+        const preview = document.getElementById('wizSpecPreview');
+        if (!model) {
+          preview.classList.remove('visible');
+          document.getElementById('wizNext1').disabled = true;
+          return;
+        }
+        const spec = SL_CARS[make].models[model];
+        document.getElementById('specCity').textContent = spec.electric ? 'EV' : spec.city.toFixed(1);
+        document.getElementById('specHwy').textContent  = spec.electric ? 'EV' : spec.hwy.toFixed(1);
+        const engParts = spec.eng.split(' ');
+        document.getElementById('specEng').textContent  = engParts.slice(0, 2).join(' ');
+        document.getElementById('specTrans').textContent = '⚙️ ' + spec.trans;
+        preview.classList.add('visible');
+        document.getElementById('wizNext1').disabled = false;
+      };
+
+      window.wizGoStep = function(n) {
+        [1,2,3].forEach(function(i) {
+          const p = document.getElementById('wizPanel' + i);
+          p.classList.remove('active');
+          p.style.display = 'none';
+        });
+        const panel = document.getElementById('wizPanel' + n);
+        panel.style.display = 'block';
+        panel.offsetHeight; // reflow for animation
+        panel.classList.add('active');
+        wizState.step = n;
+        updateDots(n);
+        document.getElementById('car-profile').scrollIntoView({ behavior:'smooth', block:'start' });
+      };
+
+      function updateDots(active) {
+        [1,2,3].forEach(function(i) {
+          const dot    = document.getElementById('wizDot' + i);
+          const circle = document.getElementById('wizDotCircle' + i);
+          dot.classList.remove('active','done');
+          if (i < active)      { dot.classList.add('done');   circle.textContent = '✓'; }
+          else if (i === active){ dot.classList.add('active'); circle.textContent = i; }
+          else                  { circle.textContent = i; }
+        });
+        [1,2].forEach(function(i) {
+          document.getElementById('wizConn' + i).classList.toggle('done', i < active);
+        });
+      }
+
+      window.selectPill = function(el) {
+        const group = el.closest('[data-group]').dataset.group;
+        el.closest('[data-group]').querySelectorAll('.wiz-pill').forEach(function(p) {
+          p.classList.remove('selected');
+        });
+        el.classList.add('selected');
+        wizState[group] = el.dataset.val;
+      };
+
+      window.wizCalculate = function() {
+        wizState.dailyKm   = parseFloat(document.getElementById('wizDailyKm').value)   || 30;
+        wizState.fuelPrice = parseFloat(document.getElementById('wizFuelPrice').value) || 317;
+        wizGoStep(3);
+        const msgs = [
+          'Fetching factory specs...',
+          'Applying Sri Lankan road conditions...',
+          'Calculating your personalised tips...',
+          'Building your profile...'
+        ];
+        const msgEl = document.getElementById('wizLoadingMsg');
+        msgEl.textContent = msgs[0];
+        setTimeout(function(){ msgEl.textContent = msgs[1]; }, 500);
+        setTimeout(function(){ msgEl.textContent = msgs[2]; }, 1000);
+        setTimeout(function(){ msgEl.textContent = msgs[3]; }, 1500);
+        setTimeout(function(){
+          document.getElementById('wizLoading').style.display  = 'none';
+          document.getElementById('wizResults').style.display  = 'block';
+          buildProfile();
+        }, 2200);
+      };
+
+      function fmt(n) { return Math.round(n).toLocaleString(); }
+
+      function buildProfile() {
+        const s = wizState;
+        const spec = SL_CARS[s.make].models[s.model];
+        const icon = SL_CARS[s.make].icon;
+
+        const base     = spec.city * 0.6 + spec.hwy * 0.4;
+        const ageMult  = SL_MULT.age(s.year);
+        const adjusted = spec.electric ? 0 :
+          base * ageMult * SL_MULT.route[s.route] * SL_MULT.ac[s.ac] * SL_MULT.load[s.load];
+
+        const bestCase   = spec.electric ? 0 : spec.hwy * 0.92;
+        const weeklyKm   = s.dailyKm * 7;
+        const litresWeek = spec.electric ? 0 : (adjusted / 100) * weeklyKm;
+        const weeklyLkr  = litresWeek * s.fuelPrice;
+        const monthlyLkr = weeklyLkr * 4.33;
+        const bestMonthly = spec.electric ? 0 : (bestCase / 100) * weeklyKm * s.fuelPrice * 4.33;
+        const saving      = Math.max(0, monthlyLkr - bestMonthly);
+        const co2Factor   = spec.diesel ? 2.68 : 2.31;
+        const co2Week     = spec.electric ? 0 : litresWeek * co2Factor;
+
+        document.getElementById('resIcon').textContent    = icon;
+        document.getElementById('resCarName').textContent = s.make + ' ' + s.model + ' ' + s.year;
+        document.getElementById('resCarSub').textContent  = spec.eng + ' • ' + spec.trans;
+
+        document.getElementById('resSaving').textContent   = spec.electric ? 'N/A' : 'Rs. ' + fmt(saving);
+        document.getElementById('resAdjusted').textContent = spec.electric ? '0 kWh' : adjusted.toFixed(1);
+
+        document.getElementById('resLitresWeek').textContent = spec.electric ? '—' : litresWeek.toFixed(1) + 'L';
+        document.getElementById('resWeeklyLkr').textContent  = 'Rs.' + fmt(weeklyLkr);
+        document.getElementById('resMonthlyLkr').textContent = 'Rs.' + fmt(monthlyLkr);
+        document.getElementById('resCo2').textContent        = spec.electric ? '0' : co2Week.toFixed(1);
+
+        // Tips
+        var tips = [];
+        if (s.year < 2005)               tips.push('Your ' + s.year + ' vehicle: full service (air filter, spark plugs, injector cleaner) can recover 8–15% efficiency.');
+        if (s.year < 2010 && !spec.hybrid) tips.push('Switch to synthetic oil (5W-30/5W-40) — reduces friction, improves economy 2–4%.');
+        if (spec.turbo)    tips.push('Turbo cool-down: idle 60–90 seconds before switching off to protect the turbo from oil bake.');
+        if (spec.diesel)   tips.push('Diesel cold starts: allow 3 km minimum warm-up. Combine short trips to avoid waste.');
+        if (spec.hybrid)   tips.push('Keep speeds under 40 km/h in city — your electric motor is most efficient here.');
+        if (spec.electric) tips.push('Charge overnight on off-peak rates. Pre-cool while still plugged in to save battery range.');
+        if (spec.trans && (spec.trans.indexOf('CVT') >= 0 || spec.trans.indexOf('Auto') >= 0))
+          tips.push('Use <strong>Eco mode</strong> in city traffic to delay upshifts and reduce fuel consumption by 4–7%.');
+        if (s.route === 'city') {
+          var peakSave = fmt(weeklyLkr * 0.3);
+          tips.push('Peak hour (7–9 am, 4:30–7 pm) wastes 30% more fuel. Shift schedule by 30 min to save ~Rs. ' + peakSave + '/week.');
+        }
+        if (s.ac === 'always')  tips.push('Park in shade and crack windows 30 s before AC — reduces cabin cooling load by 15%.');
+        if (s.load === 'full')  tips.push('Full car adds 200–300 kg (+6–10% fuel). Add 2–4 PSI to tyres when fully loaded.');
+        var psiRange = adjusted < 10 ? '30–32' : '32–34';
+        tips.push('Tyre pressure: check every 2 weeks. Your <strong>' + s.model + '</strong> needs ' + psiRange + ' PSI — under-inflation costs up to 10%.');
+        if (adjusted > 10) tips.push('Smooth acceleration: imagine a full cup of tea on your dashboard. No sharp lurches saves 10–20%.');
+
+        var tipsList = document.getElementById('resTipsList');
+        tipsList.innerHTML = tips.slice(0, 6).map(function(t) {
+          return '<div class="wiz-tip-item">' + t + '</div>';
+        }).join('');
+      }
+
+      window.wizRestart = function() {
+        wizState.year = null; wizState.make = null; wizState.model = null;
+        wizState.route = 'city'; wizState.ac = 'always'; wizState.load = 'alone';
+
+        document.getElementById('wizYear').value = '';
+        var makeSel = document.getElementById('wizMake');
+        makeSel.innerHTML = '<option value="">— Select make —</option>';
+        makeSel.disabled = true;
+        var modelSel = document.getElementById('wizModel');
+        modelSel.innerHTML = '<option value="">— Select model —</option>';
+        modelSel.disabled = true;
+        document.getElementById('wizSpecPreview').classList.remove('visible');
+        document.getElementById('wizNext1').disabled = true;
+
+        // Reset pills to defaults
+        document.querySelectorAll('#wizPanel2 .wiz-pill').forEach(function(p) { p.classList.remove('selected'); });
+        var p2 = document.getElementById('wizPanel2');
+        p2.querySelector('[data-group="route"] [data-val="city"]').classList.add('selected');
+        p2.querySelector('[data-group="ac"] [data-val="always"]').classList.add('selected');
+        p2.querySelector('[data-group="load"] [data-val="alone"]').classList.add('selected');
+
+        document.getElementById('wizLoading').style.display  = 'flex';
+        document.getElementById('wizResults').style.display  = 'none';
+        wizGoStep(1);
+      };
+
+      window.wizShare = function() {
+        var s = wizState;
+        var adj  = document.getElementById('resAdjusted').textContent;
+        var cost = document.getElementById('resMonthlyLkr').textContent;
+        var save = document.getElementById('resSaving').textContent;
+        var msg = '🚗 My ' + s.make + ' ' + s.model + ' ' + s.year + ' fuel profile from FuelPass.lk!\n\n' +
+                  '⛽ Adjusted: ' + adj + 'L/100km\n' +
+                  '💸 Monthly cost: ' + cost + '\n' +
+                  '💰 Can save: ' + save + '/month!\n\n' +
+                  'Check yours at fuelpass.lk';
+        window.open('https://wa.me/?text=' + encodeURIComponent(msg), '_blank', 'noopener');
       };
     })();
 

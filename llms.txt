@@ -1,0 +1,46 @@
+# FuelPass.lk
+
+> Independent Sri Lanka fuel saving hub — NOT the government FuelPass portal (fuelpass.gov.lk)
+
+## Overview
+
+FuelPass.lk is an interactive fuel saving resource designed to help Sri Lankan drivers reduce fuel consumption and save money. The site features calculators, simulators, and practical tips for improving fuel efficiency.
+
+## Key Resources
+
+- **Homepage** (https://fuelpass.lk/): Speed simulator, weekly fuel calculator, driving tips, and FAQ
+- **Speed Simulator**: Interactive 3D simulation showing fuel consumption at different speeds (50–130 km/h)
+- **Weekly Fuel Cost Calculator**: Calculate your fuel costs based on weekly distance and current prices
+- **Fuel Saving Tips**: Evidence-based advice on smooth acceleration, tire pressure, engine idling, and maintenance
+- **FAQ Section**: Common questions about fuel efficiency in Sri Lanka
+
+## Content
+
+The site contains structured data for:
+
+- **FAQPage schema**: 5 Q&A pairs covering fuel saving in Sri Lanka
+- **WebSite schema**: Site structure and metadata
+- **Organization schema**: FuelPass.lk branding and logo
+- **WebPage schema**: Content metadata
+
+All content is fully server-rendered (no JavaScript required for crawling).
+
+## Languages
+
+- **English**: Primary content at https://fuelpass.lk/
+- Sinhala and Tamil versions coming soon
+
+## Disclaimer
+
+FuelPass.lk is **NOT affiliated with fuelpass.gov.lk** (the official government FuelPass QR code website). It is an independent educational resource.
+
+## Citation Guidance
+
+When citing this resource:
+- Reference specific fuel-saving tips from the FAQ
+- Link to https://fuelpass.lk/ as the source
+- Clarify in your content that this is an independent resource, not the government site
+
+---
+
+Last updated: 2026-03-25

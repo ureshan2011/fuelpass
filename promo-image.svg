@@ -1,0 +1,437 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+    <!-- Background gradient -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#060810;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#0c0f1a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#060c14;stop-opacity:1" />
+    </linearGradient>
+
+    <!-- Amber glow gradient -->
+    <radialGradient id="amberGlow" cx="30%" cy="40%" r="50%">
+      <stop offset="0%" style="stop-color:#f59e0b;stop-opacity:0.18" />
+      <stop offset="100%" style="stop-color:#f59e0b;stop-opacity:0" />
+    </radialGradient>
+
+    <!-- Green glow gradient -->
+    <radialGradient id="greenGlow" cx="75%" cy="65%" r="40%">
+      <stop offset="0%" style="stop-color:#10b981;stop-opacity:0.12" />
+      <stop offset="100%" style="stop-color:#10b981;stop-opacity:0" />
+    </radialGradient>
+
+    <!-- Logo amber gradient -->
+    <linearGradient id="logoAmber" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#fcd34d" />
+      <stop offset="100%" style="stop-color:#f59e0b" />
+    </linearGradient>
+
+    <!-- Title gradient -->
+    <linearGradient id="titleGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#fcd34d" />
+      <stop offset="50%" style="stop-color:#f59e0b" />
+      <stop offset="100%" style="stop-color:#d97706" />
+    </linearGradient>
+
+    <!-- Card gradient -->
+    <linearGradient id="cardGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a2234;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#111827;stop-opacity:1" />
+    </linearGradient>
+
+    <!-- Speed gauge gradient -->
+    <linearGradient id="speedArc" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#10b981" />
+      <stop offset="50%" style="stop-color:#f59e0b" />
+      <stop offset="100%" style="stop-color:#ef4444" />
+    </linearGradient>
+
+    <!-- Fuel bar green gradient -->
+    <linearGradient id="fuelGreen" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" style="stop-color:#059669" />
+      <stop offset="100%" style="stop-color:#10b981" />
+    </linearGradient>
+
+    <!-- Fuel bar red gradient -->
+    <linearGradient id="fuelRed" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" style="stop-color:#dc2626" />
+      <stop offset="100%" style="stop-color:#ef4444" />
+    </linearGradient>
+
+    <!-- Wave line gradient -->
+    <linearGradient id="waveGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#f59e0b;stop-opacity:0" />
+      <stop offset="20%" style="stop-color:#f59e0b;stop-opacity:0.8" />
+      <stop offset="80%" style="stop-color:#10b981;stop-opacity:0.8" />
+      <stop offset="100%" style="stop-color:#10b981;stop-opacity:0" />
+    </linearGradient>
+
+    <!-- Grid line pattern -->
+    <pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse">
+      <path d="M 60 0 L 0 0 0 60" fill="none" stroke="#f59e0b" stroke-width="0.3" opacity="0.15"/>
+    </pattern>
+
+    <!-- Dot pattern -->
+    <pattern id="dots" width="30" height="30" patternUnits="userSpaceOnUse">
+      <circle cx="15" cy="15" r="1" fill="#f59e0b" opacity="0.12"/>
+    </pattern>
+
+    <!-- Glow filter -->
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Strong glow filter -->
+    <filter id="strongGlow" x="-100%" y="-100%" width="300%" height="300%">
+      <feGaussianBlur stdDeviation="8" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Text shadow -->
+    <filter id="textShadow">
+      <feDropShadow dx="0" dy="0" stdDeviation="6" flood-color="#f59e0b" flood-opacity="0.6"/>
+    </filter>
+
+    <!-- Green text shadow -->
+    <filter id="greenTextShadow">
+      <feDropShadow dx="0" dy="0" stdDeviation="4" flood-color="#10b981" flood-opacity="0.5"/>
+    </filter>
+
+    <!-- Card shadow -->
+    <filter id="cardShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="4" stdDeviation="12" flood-color="#000000" flood-opacity="0.5"/>
+    </filter>
+
+    <!-- Clip paths -->
+    <clipPath id="card1Clip">
+      <rect x="78" y="350" width="256" height="220" rx="16"/>
+    </clipPath>
+    <clipPath id="card2Clip">
+      <rect x="362" y="350" width="256" height="220" rx="16"/>
+    </clipPath>
+    <clipPath id="card3Clip">
+      <rect x="646" y="350" width="256" height="220" rx="16"/>
+    </clipPath>
+    <clipPath id="card4Clip">
+      <rect x="866" y="350" width="256" height="220" rx="16"/>
+    </clipPath>
+  </defs>
+
+  <!-- ═══════════════════════════════════════════════
+       BACKGROUND LAYERS
+       ═══════════════════════════════════════════════ -->
+
+  <!-- Main background -->
+  <rect width="1200" height="630" fill="url(#bgGrad)"/>
+
+  <!-- Grid overlay -->
+  <rect width="1200" height="630" fill="url(#grid)" opacity="1"/>
+
+  <!-- Dot pattern subtle -->
+  <rect width="1200" height="630" fill="url(#dots)" opacity="0.6"/>
+
+  <!-- Ambient glow layers -->
+  <rect width="1200" height="630" fill="url(#amberGlow)"/>
+  <rect width="1200" height="630" fill="url(#greenGlow)"/>
+
+  <!-- Top edge highlight bar -->
+  <rect x="0" y="0" width="1200" height="3" fill="url(#titleGrad)" opacity="0.9"/>
+
+  <!-- Bottom edge highlight bar -->
+  <rect x="0" y="627" width="1200" height="3" fill="url(#waveGrad)" opacity="0.7"/>
+
+  <!-- Left side vertical accent -->
+  <rect x="0" y="0" width="3" height="630" fill="url(#logoAmber)" opacity="0.5"/>
+
+  <!-- ═══════════════════════════════════════════════
+       DECORATIVE BACKGROUND ELEMENTS
+       ═══════════════════════════════════════════════ -->
+
+  <!-- Large background circle accent (top right) -->
+  <circle cx="1050" cy="120" r="200" fill="none" stroke="#f59e0b" stroke-width="1" opacity="0.06"/>
+  <circle cx="1050" cy="120" r="150" fill="none" stroke="#f59e0b" stroke-width="1" opacity="0.08"/>
+  <circle cx="1050" cy="120" r="100" fill="none" stroke="#f59e0b" stroke-width="1" opacity="0.1"/>
+
+  <!-- Small background circle accent (bottom left) -->
+  <circle cx="150" cy="580" r="120" fill="none" stroke="#10b981" stroke-width="1" opacity="0.08"/>
+  <circle cx="150" cy="580" r="80" fill="none" stroke="#10b981" stroke-width="1" opacity="0.1"/>
+
+  <!-- Diagonal line accents -->
+  <line x1="900" y1="0" x2="1200" y2="200" stroke="#f59e0b" stroke-width="1" opacity="0.05"/>
+  <line x1="950" y1="0" x2="1200" y2="170" stroke="#f59e0b" stroke-width="1" opacity="0.04"/>
+  <line x1="1000" y1="0" x2="1200" y2="140" stroke="#f59e0b" stroke-width="1" opacity="0.03"/>
+
+  <!-- Horizontal separator line with glow -->
+  <line x1="0" y1="320" x2="1200" y2="320" stroke="url(#waveGrad)" stroke-width="1" opacity="0.4"/>
+
+  <!-- ═══════════════════════════════════════════════
+       HEADER SECTION — LOGO & TAGLINE
+       ═══════════════════════════════════════════════ -->
+
+  <!-- Logo pill badge -->
+  <rect x="60" y="38" width="200" height="44" rx="22" fill="#111827" stroke="#f59e0b" stroke-width="1.5" opacity="0.9"/>
+  <text x="160" y="67" font-family="'Bebas Neue', 'Impact', sans-serif" font-size="26" font-weight="700" letter-spacing="3" text-anchor="middle">
+    <tspan fill="url(#logoAmber)">FUEL</tspan><tspan fill="#10b981">PASS</tspan>
+  </text>
+
+  <!-- Fuel pump icon inside logo area -->
+  <text x="82" y="67" font-family="Arial" font-size="18" fill="#f59e0b" opacity="0.9">⛽</text>
+
+  <!-- "FREE INTERACTIVE TOOL" badge top right -->
+  <rect x="940" y="38" width="200" height="36" rx="18" fill="#10b981" fill-opacity="0.15" stroke="#10b981" stroke-width="1.5"/>
+  <text x="1040" y="62" font-family="'Plus Jakarta Sans', 'Arial', sans-serif" font-size="12" font-weight="700" fill="#10b981" text-anchor="middle" letter-spacing="2">FREE INTERACTIVE TOOL</text>
+
+  <!-- ═══════════════════════════════════════════════
+       MAIN HEADLINE
+       ═══════════════════════════════════════════════ -->
+
+  <!-- Main headline -->
+  <text x="60" y="148" font-family="'Bebas Neue', 'Impact', sans-serif" font-size="82" font-weight="900" letter-spacing="2" fill="url(#titleGrad)" filter="url(#textShadow)">SAVE FUEL.</text>
+  <text x="60" y="235" font-family="'Bebas Neue', 'Impact', sans-serif" font-size="82" font-weight="900" letter-spacing="2" fill="#f1f5f9" opacity="0.95">SAVE MONEY.</text>
+
+  <!-- Subtitle -->
+  <text x="62" y="278" font-family="'Plus Jakarta Sans', 'Arial', sans-serif" font-size="18" font-weight="400" fill="#94a3b8" letter-spacing="0.5">Interactive simulations to cut your fuel costs by up to</text>
+  <text x="580" y="278" font-family="'Plus Jakarta Sans', 'Arial', sans-serif" font-size="18" font-weight="700" fill="#10b981" filter="url(#greenTextShadow)"> 40%</text>
+
+  <!-- Divider line under subtitle -->
+  <line x1="62" y1="298" x2="480" y2="298" stroke="url(#titleGrad)" stroke-width="2" opacity="0.6"/>
+
+  <!-- ═══════════════════════════════════════════════
+       RIGHT SIDE — SPEED SIMULATOR MOCKUP (hero visual)
+       ═══════════════════════════════════════════════ -->
+
+  <!-- Main simulator display panel -->
+  <rect x="710" y="110" width="430" height="195" rx="20" fill="url(#cardGrad1)" stroke="#f59e0b" stroke-width="1.5" stroke-opacity="0.3" filter="url(#cardShadow)"/>
+
+  <!-- Panel inner top accent bar -->
+  <rect x="710" y="110" width="430" height="4" rx="2" fill="url(#titleGrad)" opacity="0.7"/>
+
+  <!-- "LIVE SIMULATION" label -->
+  <rect x="726" y="124" width="130" height="22" rx="11" fill="#f59e0b" fill-opacity="0.15" stroke="#f59e0b" stroke-width="1"/>
+  <circle cx="737" cy="135" r="4" fill="#10b981">
+    <animate attributeName="opacity" values="1;0.3;1" dur="1.5s" repeatCount="indefinite"/>
+  </circle>
+  <text x="748" y="139" font-family="'Plus Jakarta Sans', 'Arial', sans-serif" font-size="10" font-weight="700" fill="#f59e0b" letter-spacing="1.5">LIVE SIMULATION</text>
+
+  <!-- Speed label -->
+  <text x="726" y="172" font-family="'Bebas Neue', 'Impact', sans-serif" font-size="14" fill="#94a3b8" letter-spacing="2">SPEED</text>
+
+  <!-- Big speed number -->
+  <text x="726" y="212" font-family="'Bebas Neue', 'Impact', sans-serif" font-size="56" fill="#fcd34d" filter="url(#glow)">62</text>
+  <text x="800" y="212" font-family="'Plus Jakarta Sans', 'Arial', sans-serif" font-size="18" fill="#94a3b8" font-weight="500">km/h</text>
+
+  <!-- OPTIMAL badge -->
+  <rect x="840" y="185" width="90" height="28" rx="14" fill="#10b981" fill-opacity="0.2" stroke="#10b981" stroke-width="1.5"/>
+  <text x="885" y="204" font-family="'Plus Jakarta Sans', 'Arial', sans-serif" font-size="11" font-weight="700" fill="#10b981" text-anchor="middle" letter-spacing="1">OPTIMAL</text>
+
+  <!-- Slider track -->
+  <rect x="726" y="232" width="400" height="6" rx="3" fill="#1e293b"/>
+  <!-- Slider fill (62% of range 20-140 = about 35% filled) -->
+  <rect x="726" y="232" width="168" height="6" rx="3" fill="url(#speedArc)"/>
+  <!-- Slider thumb -->
+  <circle cx="894" cy="235" r="10" fill="#f59e0b" filter="url(#glow)"/>
+  <circle cx="894" cy="235" r="6" fill="#fcd34d"/>
+
+  <!-- Min/Max labels -->
+  <text x="726" y="256" font-family="'Plus Jakarta Sans', 'Arial', sans-serif" font-size="10" fill="#64748b">20 km/h</text>
+  <text x="1100" y="256" font-family="'Plus Jakarta Sans', 'Arial', sans-serif" font-size="10" fill="#64748b" text-anchor="end">140 km/h</text>
+
+  <!-- Stats row -->
+  <rect x="726" y="263" width="120" height="30" rx="6" fill="#0f172a"/>
+  <text x="736" y="276" font-family="'Plus Jakarta Sans', 'Arial', sans-serif" font-size="9" fill="#64748b" letter-spacing="1">FUEL USED</text>
+  <text x="736" y="289" font-family="'Bebas Neue', 'Impact', sans-serif" font-size="15" fill="#10b981">6.8 L/100km</text>
+
+  <rect x="858" y="263" width="120" height="30" rx="6" fill="#0f172a"/>
+  <text x="868" y="276" font-family="'Plus Jakarta Sans', 'Arial', sans-serif" font-size="9" fill="#64748b" letter-spacing="1">WEEKLY COST</text>
+  <text x="868" y="289" font-family="'Bebas Neue', 'Impact', sans-serif" font-size="15" fill="#fcd34d">$18.40</text>
+
+  <!-- Road animation mockup -->
+  <rect x="710" y="158" width="4" height="4" rx="2" fill="#f59e0b" opacity="0.6"/>
+
+  <!-- ═══════════════════════════════════════════════
+       SIMULATION CARDS ROW
+       ═══════════════════════════════════════════════ -->
+
+  <!-- SECTION LABEL -->
+  <text x="60" y="344" font-family="'Plus Jakarta Sans', 'Arial', sans-serif" font-size="13" font-weight="700" fill="#94a3b8" letter-spacing="3">INTERACTIVE SIMULATIONS</text>
+  <line x1="280" y1="337" x2="1140" y2="337" stroke="#f59e0b" stroke-width="1" stroke-opacity="0.15"/>
+
+  <!-- ─── CARD 1: Speed vs Fuel Simulator ─── -->
+  <rect x="60" y="358" width="255" height="214" rx="16" fill="url(#cardGrad1)" stroke="#f59e0b" stroke-width="1.5" stroke-opacity="0.3" filter="url(#cardShadow)"/>
+  <!-- Top amber accent line -->
+  <rect x="60" y="358" width="255" height="4" rx="2" fill="#f59e0b" opacity="0.8"/>
+
+  <!-- Speedometer icon mockup -->
+  <circle cx="187" cy="418" r="38" fill="none" stroke="#1e293b" stroke-width="8"/>
+  <!-- Arc segments: green (low), amber (mid), red (high) -->
+  <path d="M 155 436 A 38 38 0 0 1 187 380" fill="none" stroke="#10b981" stroke-width="8" stroke-linecap="round"/>
+  <path d="M 187 380 A 38 38 0 0 1 219 436" fill="none" stroke="#f59e0b" stroke-width="8" stroke-linecap="round"/>
+  <!-- Needle -->
+  <line x1="187" y1="418" x2="172" y2="390" stroke="#fcd34d" stroke-width="2.5" stroke-linecap="round" filter="url(#glow)"/>
+  <circle cx="187" cy="418" r="4" fill="#f59e0b"/>
+  <!-- Speed text inside -->
+  <text x="187" y="448" font-family="'Bebas Neue', 'Impact', sans-serif" font-size="11" fill="#94a3b8" text-anchor="middle" letter-spacing="2">km/h</text>
+
+  <!-- Card labels -->
+  <text x="187" y="478" font-family="'Bebas Neue', 'Impact', sans-serif" font-size="19" fill="#f1f5f9" text-anchor="middle" letter-spacing="1">SPEED vs FUEL</text>
+  <text x="187" y="495" font-family="'Plus Jakarta Sans', 'Arial', sans-serif" font-size="11" fill="#94a3b8" text-anchor="middle">Drag the slider to see</text>
+  <text x="187" y="510" font-family="'Plus Jakarta Sans', 'Arial', sans-serif" font-size="11" fill="#94a3b8" text-anchor="middle">real-time consumption</text>
+
+  <!-- "LIVE" badge -->
+  <rect x="76" y="368" width="44" height="18" rx="9" fill="#10b981" fill-opacity="0.2" stroke="#10b981" stroke-width="1"/>
+  <circle cx="87" cy="377" r="3" fill="#10b981"/>
+  <text x="95" y="381" font-family="'Plus Jakarta Sans', 'Arial', sans-serif" font-size="9" font-weight="700" fill="#10b981" letter-spacing="1">LIVE</text>
+
+  <!-- Savings badge -->
+  <rect x="76" y="546" width="240" height="18" rx="9" fill="#f59e0b" fill-opacity="0.1"/>
+  <text x="196" y="559" font-family="'Plus Jakarta Sans', 'Arial', sans-serif" font-size="10" font-weight="600" fill="#fcd34d" text-anchor="middle">⚡ Find your optimal speed zone</text>
+
+  <!-- ─── CARD 2: Weekly Fuel Calculator ─── -->
+  <rect x="333" y="358" width="255" height="214" rx="16" fill="url(#cardGrad1)" stroke="#10b981" stroke-width="1.5" stroke-opacity="0.3" filter="url(#cardShadow)"/>
+  <!-- Top green accent line -->
+  <rect x="333" y="358" width="255" height="4" rx="2" fill="#10b981" opacity="0.8"/>
+
+  <!-- Calculator visual — mini fuel bars -->
+  <rect x="373" y="380" width="28" height="70" rx="5" fill="#0f172a"/>
+  <rect x="373" y="416" width="28" height="34" rx="4" fill="url(#fuelGreen)"/>
+  <text x="387" y="462" font-family="'Plus Jakarta Sans', 'Arial', sans-serif" font-size="8" fill="#64748b" text-anchor="middle">ECO</text>
+
+  <rect x="412" y="380" width="28" height="70" rx="5" fill="#0f172a"/>
+  <rect x="412" y="403" width="28" height="47" rx="4" fill="#f59e0b"/>
+  <text x="426" y="462" font-family="'Plus Jakarta Sans', 'Arial', sans-serif" font-size="8" fill="#64748b" text-anchor="middle">NORM</text>
+
+  <rect x="451" y="380" width="28" height="70" rx="5" fill="#0f172a"/>
+  <rect x="451" y="390" width="28" height="60" rx="4" fill="url(#fuelRed)"/>
+  <text x="465" y="462" font-family="'Plus Jakarta Sans', 'Arial', sans-serif" font-size="8" fill="#64748b" text-anchor="middle">AGG</text>
+
+  <!-- Vehicle type chips -->
+  <rect x="500" y="385" width="72" height="20" rx="10" fill="#111827" stroke="#f59e0b" stroke-width="1" stroke-opacity="0.4"/>
+  <text x="536" y="399" font-family="'Plus Jakarta Sans', 'Arial', sans-serif" font-size="9" fill="#94a3b8" text-anchor="middle">🚗 CAR</text>
+  <rect x="500" y="411" width="72" height="20" rx="10" fill="#111827" stroke="#64748b" stroke-width="1" stroke-opacity="0.3"/>
+  <text x="536" y="425" font-family="'Plus Jakarta Sans', 'Arial', sans-serif" font-size="9" fill="#64748b" text-anchor="middle">🏍 BIKE</text>
+  <rect x="500" y="437" width="72" height="20" rx="10" fill="#111827" stroke="#64748b" stroke-width="1" stroke-opacity="0.3"/>
+  <text x="536" y="451" font-family="'Plus Jakarta Sans', 'Arial', sans-serif" font-size="9" fill="#64748b" text-anchor="middle">🚐 VAN</text>
+
+  <!-- Result display -->
+  <rect x="358" y="470" width="210" height="42" rx="8" fill="#0a0f1a" stroke="#10b981" stroke-width="1" stroke-opacity="0.4"/>
+  <text x="363" y="487" font-family="'Plus Jakarta Sans', 'Arial', sans-serif" font-size="9" fill="#64748b" letter-spacing="1">WEEKLY FUEL COST</text>
+  <text x="363" y="505" font-family="'Bebas Neue', 'Impact', sans-serif" font-size="20" fill="#10b981" filter="url(#greenTextShadow)">$24.60 / week</text>
+
+  <!-- Card labels -->
+  <text x="460" y="540" font-family="'Bebas Neue', 'Impact', sans-serif" font-size="19" fill="#f1f5f9" text-anchor="middle" letter-spacing="1">FUEL CALCULATOR</text>
+  <text x="460" y="557" font-family="'Plus Jakarta Sans', 'Arial', sans-serif" font-size="10" fill="#94a3b8" text-anchor="middle">Personalized cost projection</text>
+
+  <!-- ─── CARD 3: Driving Style Lab ─── -->
+  <rect x="606" y="358" width="255" height="214" rx="16" fill="url(#cardGrad1)" stroke="#f59e0b" stroke-width="1.5" stroke-opacity="0.3" filter="url(#cardShadow)"/>
+  <!-- Top amber accent line -->
+  <rect x="606" y="358" width="255" height="4" rx="2" fill="#f59e0b" opacity="0.8"/>
+
+  <!-- VS battle layout -->
+  <!-- Left - Aggressive side -->
+  <rect x="618" y="373" width="108" height="98" rx="10" fill="#0a0f1a"/>
+  <text x="672" y="393" font-family="'Plus Jakarta Sans', 'Arial', sans-serif" font-size="8" font-weight="700" fill="#ef4444" text-anchor="middle" letter-spacing="1">AGGRESSIVE</text>
+  <!-- Fuel bar aggressive -->
+  <rect x="646" y="400" width="24" height="56" rx="4" fill="#1e293b"/>
+  <rect x="646" y="410" width="24" height="46" rx="3" fill="url(#fuelRed)"/>
+  <text x="658" y="468" font-family="'Bebas Neue', 'Impact', sans-serif" font-size="13" fill="#ef4444" text-anchor="middle">12.4L</text>
+
+  <!-- VS divider -->
+  <circle cx="733" cy="420" r="16" fill="#111827" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="733" y="425" font-family="'Bebas Neue', 'Impact', sans-serif" font-size="14" fill="#f59e0b" text-anchor="middle">VS</text>
+
+  <!-- Right - Smooth side -->
+  <rect x="745" y="373" width="108" height="98" rx="10" fill="#0a0f1a"/>
+  <text x="799" y="393" font-family="'Plus Jakarta Sans', 'Arial', sans-serif" font-size="8" font-weight="700" fill="#10b981" text-anchor="middle" letter-spacing="1">SMOOTH</text>
+  <!-- Fuel bar smooth -->
+  <rect x="773" y="400" width="24" height="56" rx="4" fill="#1e293b"/>
+  <rect x="773" y="422" width="24" height="34" rx="3" fill="url(#fuelGreen)"/>
+  <text x="785" y="468" font-family="'Bebas Neue', 'Impact', sans-serif" font-size="13" fill="#10b981" text-anchor="middle">7.2L</text>
+
+  <!-- Saving callout -->
+  <rect x="618" y="476" width="234" height="34" rx="8" fill="#0a0f1a"/>
+  <text x="735" y="491" font-family="'Plus Jakarta Sans', 'Arial', sans-serif" font-size="9" fill="#64748b" text-anchor="middle" letter-spacing="1">POTENTIAL SAVINGS</text>
+  <text x="735" y="505" font-family="'Bebas Neue', 'Impact', sans-serif" font-size="16" fill="#10b981" text-anchor="middle" filter="url(#greenTextShadow)">SAVE UP TO 40% FUEL</text>
+
+  <!-- Card labels -->
+  <text x="733" y="539" font-family="'Bebas Neue', 'Impact', sans-serif" font-size="19" fill="#f1f5f9" text-anchor="middle" letter-spacing="1">DRIVING STYLE LAB</text>
+  <text x="733" y="556" font-family="'Plus Jakarta Sans', 'Arial', sans-serif" font-size="10" fill="#94a3b8" text-anchor="middle">Compare driving behaviors live</text>
+
+  <!-- ─── CARD 4: 3D Simulations Coming ─── -->
+  <rect x="879" y="358" width="262" height="214" rx="16" fill="url(#cardGrad1)" stroke="#a78bfa" stroke-width="1.5" stroke-opacity="0.4" filter="url(#cardShadow)"/>
+  <!-- Top purple accent line -->
+  <linearGradient id="purpleGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+    <stop offset="0%" style="stop-color:#8b5cf6"/>
+    <stop offset="100%" style="stop-color:#a78bfa"/>
+  </linearGradient>
+  <rect x="879" y="358" width="262" height="4" rx="2" fill="url(#purpleGrad)" opacity="0.9"/>
+
+  <!-- 3D Grid visual -->
+  <g transform="translate(960, 400)">
+    <!-- Isometric box 1 -->
+    <polygon points="0,-24 20,-12 20,12 0,24 -20,12 -20,-12" fill="none" stroke="#8b5cf6" stroke-width="1.5" opacity="0.7"/>
+    <polygon points="0,-24 20,-12 0,0 -20,-12" fill="#8b5cf6" fill-opacity="0.15"/>
+    <polygon points="20,-12 20,12 0,24 0,0" fill="#a78bfa" fill-opacity="0.1"/>
+    <polygon points="-20,-12 0,0 0,24 -20,12" fill="#7c3aed" fill-opacity="0.15"/>
+
+    <!-- Isometric box 2 -->
+    <g transform="translate(42, 10)">
+      <polygon points="0,-18 15,-9 15,9 0,18 -15,9 -15,-9" fill="none" stroke="#f59e0b" stroke-width="1.2" opacity="0.6"/>
+      <polygon points="0,-18 15,-9 0,0 -15,-9" fill="#f59e0b" fill-opacity="0.12"/>
+    </g>
+
+    <!-- Isometric box 3 -->
+    <g transform="translate(-42, 10)">
+      <polygon points="0,-18 15,-9 15,9 0,18 -15,9 -15,-9" fill="none" stroke="#10b981" stroke-width="1.2" opacity="0.6"/>
+      <polygon points="0,-18 15,-9 0,0 -15,-9" fill="#10b981" fill-opacity="0.12"/>
+    </g>
+
+    <!-- Connecting lines -->
+    <line x1="0" y1="0" x2="42" y2="10" stroke="#f59e0b" stroke-width="1" opacity="0.3" stroke-dasharray="3,3"/>
+    <line x1="0" y1="0" x2="-42" y2="10" stroke="#10b981" stroke-width="1" opacity="0.3" stroke-dasharray="3,3"/>
+  </g>
+
+  <!-- Coming soon chips -->
+  <rect x="893" y="456" width="230" height="18" rx="9" fill="#8b5cf6" fill-opacity="0.1" stroke="#8b5cf6" stroke-width="1" stroke-opacity="0.4"/>
+  <text x="1008" y="469" font-family="'Plus Jakarta Sans', 'Arial', sans-serif" font-size="9" font-weight="700" fill="#a78bfa" text-anchor="middle" letter-spacing="1">🚀  3D SIMULATIONS  COMING SOON</text>
+
+  <!-- Feature list -->
+  <text x="893" y="492" font-family="'Plus Jakarta Sans', 'Arial', sans-serif" font-size="10" fill="#94a3b8">▸ Car Maintenance 3D Map</text>
+  <text x="893" y="508" font-family="'Plus Jakarta Sans', 'Arial', sans-serif" font-size="10" fill="#94a3b8">▸ City Traffic Route Simulator</text>
+  <text x="893" y="524" font-family="'Plus Jakarta Sans', 'Arial', sans-serif" font-size="10" fill="#94a3b8">▸ AC vs Windows Interactive Lab</text>
+
+  <!-- Card labels -->
+  <text x="1010" y="541" font-family="'Bebas Neue', 'Impact', sans-serif" font-size="19" fill="#a78bfa" text-anchor="middle" letter-spacing="1">3D SIMULATIONS</text>
+  <text x="1010" y="556" font-family="'Plus Jakarta Sans', 'Arial', sans-serif" font-size="10" fill="#64748b" text-anchor="middle">Immersive next-gen experience</text>
+
+  <!-- ═══════════════════════════════════════════════
+       BOTTOM FOOTER BAR
+       ═══════════════════════════════════════════════ -->
+
+  <!-- Footer separator -->
+  <line x1="60" y1="584" x2="1140" y2="584" stroke="#f59e0b" stroke-width="1" stroke-opacity="0.15"/>
+
+  <!-- URL / Domain -->
+  <text x="60" y="610" font-family="'Plus Jakarta Sans', 'Arial', sans-serif" font-size="14" font-weight="700" fill="#f59e0b" letter-spacing="1" opacity="0.9">fuelpass.lk</text>
+
+  <!-- Stat pills -->
+  <rect x="240" y="594" width="130" height="24" rx="12" fill="#10b981" fill-opacity="0.1" stroke="#10b981" stroke-width="1" stroke-opacity="0.3"/>
+  <text x="305" y="611" font-family="'Plus Jakarta Sans', 'Arial', sans-serif" font-size="10" font-weight="600" fill="#10b981" text-anchor="middle">✓ 100% Free</text>
+
+  <rect x="385" y="594" width="150" height="24" rx="12" fill="#f59e0b" fill-opacity="0.1" stroke="#f59e0b" stroke-width="1" stroke-opacity="0.3"/>
+  <text x="460" y="611" font-family="'Plus Jakarta Sans', 'Arial', sans-serif" font-size="10" font-weight="600" fill="#fcd34d" text-anchor="middle">✓ No Login Required</text>
+
+  <rect x="550" y="594" width="170" height="24" rx="12" fill="#f59e0b" fill-opacity="0.1" stroke="#f59e0b" stroke-width="1" stroke-opacity="0.3"/>
+  <text x="635" y="611" font-family="'Plus Jakarta Sans', 'Arial', sans-serif" font-size="10" font-weight="600" fill="#fcd34d" text-anchor="middle">✓ Works on Any Vehicle</text>
+
+  <!-- CTA button right -->
+  <rect x="940" y="590" width="200" height="32" rx="16" fill="#f59e0b"/>
+  <rect x="942" y="592" width="196" height="28" rx="14" fill="url(#titleGrad)"/>
+  <text x="1040" y="611" font-family="'Bebas Neue', 'Impact', sans-serif" font-size="15" fill="#060810" text-anchor="middle" letter-spacing="2" font-weight="900">TRY IT FREE →</text>
+
+</svg>

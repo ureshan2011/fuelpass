@@ -323,6 +323,92 @@
       opacity: 0.85;
     }
 
+    /* ── GUIDES DROPDOWN ── */
+    .nav-dropdown {
+      position: relative;
+    }
+
+    .nav-dropdown > a {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      cursor: pointer;
+    }
+
+    .nav-dropdown > a::after {
+      content: '▾';
+      font-size: 0.7rem;
+      transition: transform 0.2s;
+      color: var(--text-muted);
+    }
+
+    .nav-dropdown:hover > a::after,
+    .nav-dropdown.open > a::after {
+      transform: rotate(-180deg);
+      color: var(--amber);
+    }
+
+    .nav-dropdown-menu {
+      display: none;
+      position: absolute;
+      top: calc(100% + 12px);
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(12, 15, 26, 0.98);
+      backdrop-filter: blur(20px);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      min-width: 200px;
+      padding: 8px 0;
+      z-index: 1000;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+    }
+
+    .nav-dropdown-menu::before {
+      content: '';
+      position: absolute;
+      top: -6px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 10px;
+      height: 10px;
+      background: rgba(12,15,26,0.98);
+      border-left: 1px solid var(--border);
+      border-top: 1px solid var(--border);
+      rotate: 45deg;
+    }
+
+    .nav-dropdown:hover .nav-dropdown-menu,
+    .nav-dropdown.open .nav-dropdown-menu {
+      display: block;
+    }
+
+    .nav-dropdown-menu li {
+      list-style: none;
+    }
+
+    .nav-dropdown-menu a {
+      display: block;
+      padding: 8px 18px;
+      font-size: 0.84rem;
+      color: var(--text-muted) !important;
+      white-space: nowrap;
+      border-left: 2px solid transparent;
+      transition: color 0.15s, border-color 0.15s, background 0.15s;
+    }
+
+    .nav-dropdown-menu a:hover {
+      color: var(--amber) !important;
+      background: rgba(245,158,11,0.06);
+      border-left-color: var(--amber);
+    }
+
+    .nav-dropdown-menu .menu-divider {
+      height: 1px;
+      background: var(--border);
+      margin: 6px 0;
+    }
+
     .hamburger {
       display: none;
       flex-direction: column;
@@ -1623,6 +1709,17 @@
       <li><a href="#calculator">Calculator</a></li>
       <li><a href="#car-profile">My Car</a></li>
       <li><a href="#simulations">3D Labs</a></li>
+      <li class="nav-dropdown">
+        <a href="#" onclick="this.closest('.nav-dropdown').classList.toggle('open');return false;">Guides</a>
+        <ul class="nav-dropdown-menu">
+          <li><a href="/fuel-pass-guide/">Fuel Pass Guide</a></li>
+          <li><a href="/fuel-pass-fix/">Fix Errors</a></li>
+          <li><a href="/fuel-pass-quota/">Quota Guide</a></li>
+          <li><a href="/fuel-price-sri-lanka/">Fuel Prices</a></li>
+          <li class="menu-divider"></li>
+          <li><a href="/sinhala/">සිංහල / Sinhala</a></li>
+        </ul>
+      </li>
       <li><a href="https://fuelpass.gov.lk" target="_blank" rel="noopener" class="nav-cta">Official FuelPass ↗</a></li>
     </ul>
     <div class="hamburger" onclick="this.classList.toggle('open')">

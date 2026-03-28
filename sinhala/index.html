@@ -110,7 +110,37 @@
     footer { background: var(--bg2); border-top: 1px solid var(--border); padding: 2rem 5%; text-align: center; font-size: 0.82rem; color: var(--text-muted); font-family: 'Plus Jakarta Sans', sans-serif; }
     footer a { color: var(--amber); }
 
-    @media (max-width: 600px) { .nav-links { display: none; } }
+    .hamburger {
+      display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px;
+    }
+    .hamburger span {
+      width: 24px; height: 2px; background: var(--amber); border-radius: 2px;
+      transition: transform 0.25s ease, opacity 0.25s ease;
+    }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    @media (max-width: 600px) {
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      .nav-links.open {
+        display: flex; flex-direction: column;
+        position: fixed; top: 64px; left: 0; right: 0;
+        background: rgba(6,8,16,0.97);
+        backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+        padding: 0.5rem 5% 1.5rem;
+        border-bottom: 1px solid var(--border);
+        z-index: 899; gap: 0;
+        animation: mobileNavIn 0.2s ease;
+      }
+      .nav-links.open li { padding: 11px 0; border-bottom: 1px solid rgba(255,255,255,0.06); }
+      .nav-links.open li:last-child { border-bottom: none; padding-top: 14px; }
+      .nav-links.open a { font-size: 0.95rem; }
+      @keyframes mobileNavIn {
+        from { opacity: 0; transform: translateY(-8px); }
+        to   { opacity: 1; transform: translateY(0); }
+      }
+    }
   </style>
 </head>
 <body>
@@ -122,13 +152,27 @@
 
 <nav>
   <div class="logo">Fuel<span>Pass</span>.lk</div>
-  <ul class="nav-links">
+  <ul class="nav-links" id="si-nav">
     <li><a href="/">Home (English)</a></li>
+    <li><a href="/#simulator">Simulator</a></li>
     <li><a href="/#calculator">Calculator</a></li>
     <li><a href="/fuel-pass-guide/">Fuel Pass Guide</a></li>
+    <li><a href="/fuel-pass-fix/">Fix Errors</a></li>
+    <li><a href="/fuel-pass-quota/">Quota Guide</a></li>
     <li><a href="https://fuelpass.gov.lk" target="_blank" rel="noopener" class="nav-cta">Official FuelPass ↗</a></li>
   </ul>
+  <div class="hamburger" id="si-ham" onclick="this.classList.toggle('open');document.getElementById('si-nav').classList.toggle('open')">
+    <span></span><span></span><span></span>
+  </div>
 </nav>
+<script>
+(function(){
+  var ham=document.getElementById('si-ham'),nav=document.getElementById('si-nav');
+  function close(){ham.classList.remove('open');nav.classList.remove('open');}
+  nav.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){if(window.innerWidth<=600)close();});});
+  document.addEventListener('click',function(e){if(!e.target.closest('nav')&&nav.classList.contains('open'))close();});
+})();
+</script>
 
 <main>
 

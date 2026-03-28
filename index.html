@@ -421,6 +421,20 @@
       height: 2px;
       background: var(--amber);
       border-radius: 2px;
+      transition: transform 0.25s ease, opacity 0.25s ease;
+    }
+
+    .hamburger.open span:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+
+    .hamburger.open span:nth-child(2) {
+      opacity: 0;
+      transform: scaleX(0);
+    }
+
+    .hamburger.open span:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
     }
 
     /* ── HERO ── */
@@ -1260,6 +1274,67 @@
         display: flex;
       }
 
+      .nav-links.open {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        top: 64px;
+        left: 0;
+        right: 0;
+        background: rgba(6, 8, 16, 0.97);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        padding: 0.5rem 5% 1.5rem;
+        gap: 0;
+        border-bottom: 1px solid var(--border);
+        z-index: 899;
+        animation: mobileNavIn 0.2s ease;
+      }
+
+      .nav-links.open > li {
+        padding: 12px 0;
+        border-bottom: 1px solid rgba(255,255,255,0.06);
+      }
+
+      .nav-links.open > li:last-child {
+        border-bottom: none;
+        padding-top: 14px;
+      }
+
+      .nav-links.open a {
+        font-size: 0.95rem;
+      }
+
+      .nav-links.open .nav-dropdown > a::after {
+        float: right;
+      }
+
+      .nav-links.open .nav-dropdown-menu {
+        position: static;
+        transform: none;
+        background: rgba(255,255,255,0.03);
+        border: 1px solid rgba(255,255,255,0.06);
+        border-radius: 8px;
+        padding: 4px 0 6px 0;
+        margin-top: 6px;
+        box-shadow: none;
+        min-width: unset;
+        display: none;
+      }
+
+      .nav-links.open .nav-dropdown.open .nav-dropdown-menu {
+        display: block;
+      }
+
+      .nav-links.open .nav-dropdown-menu::before {
+        display: none;
+      }
+
+      @keyframes mobileNavIn {
+        from { opacity: 0; transform: translateY(-8px); }
+        to   { opacity: 1; transform: translateY(0); }
+      }
+
       .hero-stats {
         flex-wrap: wrap;
         gap: 24px;
@@ -1722,7 +1797,7 @@
       </li>
       <li><a href="https://fuelpass.gov.lk" target="_blank" rel="noopener" class="nav-cta">Official FuelPass ↗</a></li>
     </ul>
-    <div class="hamburger" onclick="this.classList.toggle('open')">
+    <div class="hamburger" id="ham-btn" onclick="this.classList.toggle('open');document.querySelector('.nav-links').classList.toggle('open')">
       <span></span><span></span><span></span>
     </div>
   </nav>
@@ -3129,6 +3204,26 @@
       });
     }, { threshold: 0.12 });
     revealEls.forEach(el => observer.observe(el));
+  </script>
+
+  <!-- Mobile nav: close on link click or outside tap -->
+  <script>
+  (function(){
+    var ham = document.getElementById('ham-btn');
+    var nav = document.querySelector('nav .nav-links');
+    function closeMenu(){
+      ham.classList.remove('open');
+      nav.classList.remove('open');
+    }
+    nav.querySelectorAll('a').forEach(function(a){
+      a.addEventListener('click', function(){
+        if(window.innerWidth <= 768) closeMenu();
+      });
+    });
+    document.addEventListener('click', function(e){
+      if(!e.target.closest('nav') && nav.classList.contains('open')) closeMenu();
+    });
+  })();
   </script>
 </body>
 

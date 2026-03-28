@@ -3217,6 +3217,8 @@
     }
     nav.querySelectorAll('a').forEach(function(a){
       a.addEventListener('click', function(){
+        // Skip the Guides dropdown trigger — it only toggles the submenu
+        if(this.parentElement.classList.contains('nav-dropdown')) return;
         if(window.innerWidth <= 768) closeMenu();
       });
     });
